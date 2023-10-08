@@ -12,7 +12,7 @@
           content="ie=edge">
     <link rel="stylesheet"
           href="style.css">
-    <title>Document</title>
+    <title>document</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap');
 
@@ -93,9 +93,10 @@
         <button id="buy">Ввод данных</button>
     </div>
     <form id="form">
-        <input type="text" placeholder="Name1" id="val1">
-        <input type="text" placeholder="Name2" id="val2">
-        <input type="text" placeholder="Name3" id="val3">
+        <input type="text" placeholder="Температурный режим" id="mode">
+        <input type="text" placeholder="Приведенная толщина, мм" id="ptm">
+        <input type="text" placeholder="Критическая температура, С" id="temp">
+        <div id="error"></div>
         <button id="order">Ввести данные</button>
     </form>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
@@ -108,9 +109,24 @@
         buy.addEventListener("click", () => {
             document.getElementById("main").style.display = "none";
             document.getElementById("form").style.display = "block";
-            document.getElementById("val1").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name
         });
         order.addEventListener("click", () => {
+            document.getElementById("error").innerText = '';
+            let mode = document.getElementById("mode").value;
+            let ptm = document.getElementById("ptm").value;
+            let temp = document.getElementById("temp").value;
+            if (mode.length < 5) {
+                document.getElementById("error").innerText = 'Ошибка в имени';
+                return;
+            }
+            if (ptm.length < 1) {
+                document.getElementById("error").innerText = 'Ошибка в ПТМ';
+                return;
+            }
+            if (temp.length < 2) {
+                document.getElementById("error").innerText = 'Ошибка в Ткр';
+                return;
+            }
             tg.close();
         });
 
