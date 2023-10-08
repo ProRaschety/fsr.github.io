@@ -127,6 +127,14 @@
                 document.getElementById("error").innerText = 'Ошибка в Ткр';
                 return;
             }
+
+            let data = {
+                mode: mode,
+                ptm: ptm,
+                temp: temp
+
+            tg.sendData(JSON.stringify(data));
+
             tg.close();
         });
 
