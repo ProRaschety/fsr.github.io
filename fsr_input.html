@@ -16,34 +16,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&display=swap');
         
-        @keyframes rotate {
-        	from {
-        		transform: rotate(0deg);
-        	}
-        	to {
-        		transform: rotate(360deg);
-        	}
-        }
-        .button:hover {
-        	filter: drop-shadow(2px 4px 15px #975300);
-        }
-        .button:hover .circle {
-        	color: #e38b29;
-        	stroke-dasharray: 360;
-        }
-        .button:hover .play {
-        	color: #e38b29;
-        	transform: translate3d(-50%, -50%, 0) rotate(90deg) scale(0.9);
-        }
-        
-        .player {
-        	display: none;
-        	position: absolute;
-        	top: 0;
-        	left: 0;
-        	pointer-events: none;
-        	user-select: none;
-        }
         * {
             margin: 0;
             padding: 0;
@@ -119,24 +91,10 @@
 </head>
 <body>
     <div id="main">
-        <h1>Input data FSR</h1>
+        <h1>Ввод данных для расчета огнестойкости стальной конструкции</h1>
         <img src="https://github.com/ProRaschety/fsr_input/blob/main/Logo.png">
-        <p>Здесь будут поля для ввода исходных данных для расчета огнестойкости элемента стальной конструкции.</p>
+        <p>Расчет выполен по уравнению из пособия: Яковлев А.И. «Расчет огнестойкости строительных конструкций», Москва, Стройиздат, 1988 г. – 143 с.</p>
         <button id="buy">Ввод данных</button>
-    </div>
-    
-        <div class="container">
-            <div class="button">
-                <svg class="circle" fill="none" width="6rem" height="6em" viewBox="0 0 110 110">
-                    <circle stroke="currentColor" stroke-width="2px" cx="55" cy="55" r="50" />
-                </svg>
-                <svg class="play" width="3rem" height="3rem" viewBox="0 0 348 308" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M152.349 12.5C161.972 -4.16671 186.028 -4.16667 195.651 12.5L344.607 270.5C354.23 287.167 342.201 308 322.956 308H25.0436C5.79857 308 -6.22951 287.167 3.39299 270.5L152.349 12.5Z" fill="currentColor" />
-                </svg>
-            </div>
-        </div>
-    <div
-            id="player" class="player">
     </div>
 
     <form id="form">
